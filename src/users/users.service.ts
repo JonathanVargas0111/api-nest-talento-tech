@@ -71,4 +71,8 @@ export class UsersService {
         }
     }
 
+    findByEmail(email: string): Promise<User | any> {        
+        return this.userModel.findOne({ email }).exec();
+    }
+
 }

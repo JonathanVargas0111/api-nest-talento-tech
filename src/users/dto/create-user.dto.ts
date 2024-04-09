@@ -1,10 +1,11 @@
-import { IsEmail, IsNotEmpty, IsNumber, IsString, Matches, MinLength, Validate } from "class-validator";
-
 /* Entidad: Son los datos que tendrá la base de datos
 Dtos: Datos que se espera recibir al crear o actualizar 
 para realizar estas operaciones
  */
+import { IsEmail, IsNotEmpty, IsNumber, IsString, Matches, MinLength, Validate } from "class-validator";
 import {UniqueValidator} from "../validations/unique-email.validator";
+
+
 export class CreateUserDto {
     @IsNumber()
     readonly id: number;
@@ -12,7 +13,7 @@ export class CreateUserDto {
     @MinLength(3, { message: "The name must be at least 3 characters" })
     @IsString({ message: "The name must be a string" })
     readonly name: string;
-    @Validate(UniqueValidator,{message: "The email is already in use"})
+  /*   @Validate(UniqueValidator,{message: "The email is already in use"}) */
     @IsNotEmpty({message: "The email is required"})
     @IsEmail({}, { message: "The email is not valid, check the format email" })
     readonly email: string;

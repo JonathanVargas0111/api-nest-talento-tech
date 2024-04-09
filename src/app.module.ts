@@ -15,5 +15,6 @@ console.log(process.env.DB_URL);
   imports: [UsersModule,HousesModule,MongooseModule.forRoot(process.env.DB_URL)],
   controllers: [AppController],
   providers: [AppService],
+  
 })
 export class AppModule { }
